@@ -10,22 +10,22 @@ pipeline {
         }
         stage ("Checking Maven Version"){
 			steps{
-				bat "mvn -version"
+				bat """mvn -version"""
 			}
 		}
         stage("Removing the Target directory & Copying the artifact in the local repository") {
             steps {
-                bat "mvn clean install"
+                bat """mvn clean install"""
             }
         }
         stage ("Launching Unit Tests"){
 			steps{
-				bat "mvn test"
+				bat """mvn test"""
 			}
 		}
         stage("Generating artifact in the Target directory") {
             steps {
-                bat "mvn package"
+                bat """mvn package -Dmaven.test.skip=true"""
             }
         }
     }
