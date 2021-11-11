@@ -21,10 +21,10 @@ pipeline {
     }
     post {
         success {
-            emailtext body:'Build Success', subject:'Jenkins', to: 'oussema.mihoubi@esprit.tn'
+            emailtext body:'Build Success', subject:'Jenkins', to: 'xbios1312@gmail.com'
         }
         failure {
-            emailtext body:'Build Failure', subject:'Jenkins', to: 'oussema.mihoubi@esprit.tn'
+            emailtext body:'Build Failure', subject:'Jenkins', to: 'xbios1312@gmail.com'
         }
     }
 }
