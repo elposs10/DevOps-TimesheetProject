@@ -8,12 +8,22 @@ pipeline {
                 url: 'https://github.com/elposs10/DevOps-TimesheetProject.git';
             }
         }
-        stage("Test, Build") {
+        stage ("Checking Maven Version"){
+			steps{
+				bat "mvn -version"
+			}
+		}
+        stage("Removing the Target directory & Copying the artifact in the local repository") {
             steps {
                 bat "mvn clean install"
             }
         }
-        stage("Package") {
+        stage ("Launching Unit Tests"){
+			steps{
+				bat "mvn test"
+			}
+		}
+        stage("Generating artifact in the Target directory") {
             steps {
                 bat "mvn package"
             }
@@ -21,10 +31,10 @@ pipeline {
     }
     post {
         success {
-            emailtext body:'Build Success', subject:'Jenkins', to: 'xbios1312@gmail.com'
+            emailext body:'Build Success', subject:'Jenkins', to: 'xbios1312@gmail.com'
         }
         failure {
-            emailtext body:'Build Failure', subject:'Jenkins', to: 'xbios1312@gmail.com'
+            emailext body:'Build Failure', subject:'Jenkins', to: 'xbios1312@gmail.com'
         }
     }
 }
