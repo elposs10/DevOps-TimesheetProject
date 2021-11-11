@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout GIT') {
             steps {
                 echo 'Pulling...';
-                git branch: 'oussema';
+                git branch: 'oussema',
                 url: 'https://github.com/elposs10/DevOps-TimesheetProject.git';
             }
         }
