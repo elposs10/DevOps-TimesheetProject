@@ -31,10 +31,10 @@ pipeline {
     }
     post {
         success {
-            emailext body:'Build Success', subject:'Jenkins', to: 'xbios1312@gmail.com'
+            emailext body:'Build Success', subject:'Jenkins', to: 'oussema.mihoubi@esprit.tn'
         }
         failure {
-            emailext body:'Build Failure', subject:'Jenkins', to: 'xbios1312@gmail.com'
+            emailext body:'Build Failure', subject:'Jenkins', to: 'oussema.mihoubi@esprit.tn'
         }
     }
 }
