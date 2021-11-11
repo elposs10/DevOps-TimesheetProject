@@ -4,18 +4,18 @@ pipeline {
         stage('Checkout GIT') {
             steps {
                 echo 'Pulling...';
-                git branch 'oussema';
-                url : 'https://github.com/elposs10/DevOps-TimesheetProject.git';
+                git branch: 'oussema';
+                url: 'https://github.com/elposs10/DevOps-TimesheetProject.git';
             }
         }
         stage("Test, Build") {
             steps {
-                bat """mvn clean install"""
+                bat "mvn clean install"
             }
         }
         stage("Package") {
             steps {
-                bat """mvn package"""
+                bat "mvn package"
             }
         }
     }
